@@ -1,6 +1,8 @@
 'use strict';
 
 const common = require('../common');
+const commonFixtures = require('../common/fixtures');
+
 if (!common.isWindows)
   common.skip('Test for Windows only');
 
@@ -16,7 +18,7 @@ let drive;
 let i;
 for (i = 0; i < driveLetters.length; ++i) {
   drive = `${driveLetters[i]}:`;
-  result = spawnSync('subst', [drive, common.fixturesDir]);
+  result = spawnSync('subst', [drive, commonFixtures.fixturesDir]);
   if (result.status === 0)
     break;
 }
